@@ -27,7 +27,6 @@ class GoogleCalendarRedirectView(APIView):
         credentials = flow.credentials
 
         calendar = list_events(credentials.token)
-        # calendar=list_events("ya29.a0AWY7Ckm0iNxTAhx5ejnxb0acNJOKoE5HQOxQx1_e5vBLn1O39qRIR_qWUvjMCK9j4jLSHpxo1loMCChJZiLotqbUgjMIDqmykPatChJemYr9_7OSJeWH145ebyLySaX1WojWatrUCJ96m9O7dcR3sk9Z0KXqaCgYKASwSARISFQG1tDrpop19elqbavSYFBJLHo9a0g0163")
 
         serializer = CalenderSerializer(calendar, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
